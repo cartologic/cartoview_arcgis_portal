@@ -3,11 +3,13 @@
 Portal for ArcGIS Implementaation using dajngo. The app is integrated with [cartoview](https://github.com/cartologic/cartoview) to manage maps and layers with the use of [Cartoview arcgis feature server](https://github.com/cartologic/cartoview_arcgis_feature_server).
 
 # Installation
-- 1. Download the app package form [here](http://cartologic.com/cartoview2/apps/)
-- 2. in your [cartoview](github.com/cartologic/cartoview) installation, login as admin
-- 3. go to "Apps" then "Manage Apps" then "Install new app"
-- 4. upload the downloaded package and click install
-- 5. wait untill the installation finish
+
+1. Install [Cartoview arcgis feature server](https://github.com/cartologic/cartoview_arcgis_feature_server).
+2. Download the app package form [here](http://cartologic.com/cartoview2/apps/)
+2. in your [cartoview](github.com/cartologic/cartoview) installation, login as admin
+3. go to "Apps" then "Manage Apps" then "Install new app"
+4. upload the downloaded package and click install
+5. wait untill the installation finish
 
 # Support
 for now the portal is supporting web maps only
