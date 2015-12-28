@@ -1,10 +1,10 @@
 __author__ = 'Ahmed Nour Eldeen'
-
+from .. import *
 import os
 from django.conf.urls import patterns, url, static
 import views
 import rest_views
-from .. import *
+
 
 url_patterns = patterns('',
     url(r'^newItem/$', views.new_item, name=CONTENT_NEW_ITEM_URL_NAME),

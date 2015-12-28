@@ -1,8 +1,5 @@
 __author__ = 'AhmedNourEldeen'
 APP_NAME = 'arcportal'
-
-
-
 SHARING_HOME_URL_NAME = APP_NAME + "_sharing_home"
 REST_HOME_URL_NAME = APP_NAME + "_rest_home"
 REST_INFO_URL_NAME = APP_NAME + "_rest_info"
