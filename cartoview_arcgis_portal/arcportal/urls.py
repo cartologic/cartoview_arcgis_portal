@@ -6,17 +6,17 @@ import token_manager.urls as token_urls
 import content.urls as content_urls
 import search.urls as search_urls
 import community.urls as community_urls
-
+from . import *
 
 url_sub_patterns = patterns('',
-                            url(r'^$', views.sharing_home, name="arcportal_sharing_home"),
-                            url(r'^rest$', views.sharing_home, name="arcportal_rest_home"),
-                            url(r'^rest/info$', views.info, name="arcportal_rest_info"),
+                            url(r'^$', views.sharing_home, name= SHARING_HOME_URL_NAME),
+                            url(r'^rest$', views.sharing_home, name=REST_HOME_URL_NAME),
+                            url(r'^rest/info$', views.info, name=REST_INFO_URL_NAME),
 
                             url(r'^rest/', include(token_urls.url_patterns)),
-                            url(r'^portals/$', views.portal, name="arcportal_portals"),
-                            url(r'^portals/self$', views.portal, name="arcportal_portals_self"),
-                            url(r'^rest/portals/self$', views.portal, name="arcportal_rest_portals_self"),
+                            url(r'^portals/$', views.portal, name=PORTALS_URL_NAME),
+                            url(r'^portals/self$', views.portal, name=PORTALS_SELF_URL_NAME),
+                            url(r'^rest/portals/self$', views.portal, name=REST_PORTALS_SELF_URL_NAME),
 
                             url(r'', include(token_urls.url_patterns)),
 
