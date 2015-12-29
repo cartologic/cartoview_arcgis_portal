@@ -176,6 +176,10 @@ class Map(models.Model):
         return lg_name
 
 
+@receiver(post_delete, sender=GeonodeMap)
+def post_delete_geonode_map(sender, instance, *args, **kwargs):
+    instance.portal_map.all().delete()
+
 @receiver(post_delete, sender=Map)
 def post_delete_map(sender, instance, *args, **kwargs):
     instance.portal_item.delete()
