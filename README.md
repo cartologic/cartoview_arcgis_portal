@@ -6,10 +6,14 @@ Portal for ArcGIS Implementaation using dajngo. The app is integrated with [cart
 
 1. Install [Cartoview arcgis feature server](https://github.com/cartologic/cartoview_arcgis_feature_server).
 2. Download the app package form [here](http://cartologic.com/cartoview2/apps/)
-2. in your [cartoview](github.com/cartologic/cartoview) installation, login as admin
-3. go to "Apps" then "Manage Apps" then "Install new app"
-4. upload the downloaded package and click install
-5. wait untill the installation finish
+3. in your [cartoview](github.com/cartologic/cartoview) installation, login as admin
+4. go to "Apps" then "Manage Apps" then "Install new app"
+5. upload the downloaded package and click install
+6. wait untill the installation finish
+7. (NOTE) there is a bug in cartoview which prevent the app to be installed correctely. untail we fix this bug please do the following steps
+8. open command line then navigate to geonode folder using the command ```cd "C:\Program Files (x86)\Geonode\geonode"```
+9. activate the geonode virtual environment by running the batch file ```"C:\Program Files (x86)\Geonode\env_geonode\Scripts\activate.bat"```
+10. run the command ```python manage.py syncdb```
 
 # Support
 for now the portal is supporting web maps only
