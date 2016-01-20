@@ -136,17 +136,18 @@ class Map(models.Model):
         if not self.geonode_map.is_public:
             return 'Only public maps can be saved as layer group.'
 
-        map_layers = MapLayer.objects.filter(map=self.geonode_map.id)
+        map_layers =self.geonode_map.layer_set.filter(local=True)
+        if map_layers.count() == 0:
+            return None
 
         # Local Group Layer layers and corresponding styles
         layers = []
         lg_styles = []
         for ml in map_layers:
-            if ml.local:
-                layer = Layer.objects.get(typename=ml.name)
-                style = ml.styles or getattr(layer.default_style, 'name', '')
-                layers.append(layer)
-                lg_styles.append(style)
+            layer = Layer.objects.get(typename=ml.name)
+            style = ml.styles or getattr(layer.default_style, 'name', '')
+            layers.append(layer)
+            lg_styles.append(style)
         lg_layers = [l.name for l in layers]
 
         # Group layer bounds and name
@@ -178,19 +179,27 @@ class Map(models.Model):
 
 @receiver(post_delete, sender=GeonodeMap)
 def post_delete_geonode_map(sender, instance, *args, **kwargs):
-    instance.portal_map.all().delete()
+    try:
+        instance.portal_map.all().delete()
+    except:
+        pass
 
 @receiver(post_delete, sender=Map)
 def post_delete_map(sender, instance, *args, **kwargs):
-    instance.portal_item.delete()
+    try:
+        instance.portal_item.delete()
+    except:
+        pass
 
 
 def map_map(geonode_map, created=True):
-    m, m_created = Map.objects.get_or_create(geonode_map=geonode_map)
-    m.save()
-    if not created and not m.edited:
-        m.publish()
-
+    try:
+        m, m_created = Map.objects.get_or_create(geonode_map=geonode_map)
+        m.save()
+        if not created and not m.edited:
+            m.publish()
+    except:
+        pass
 
 @receiver(post_save, sender=GeonodeMap)
 def post_save_map(sender, instance, created, *args, **kwargs):
