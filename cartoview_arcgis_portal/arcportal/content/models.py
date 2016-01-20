@@ -14,8 +14,8 @@ class Item(models.Model):
     # resource = models.ForeignKey(Resource, related_name='%(app_label)s_%(class)s')
     created = models.DateTimeField(auto_now_add=True) # changed by kamal to auto assign the creation time
     modified = models.DateTimeField(auto_now=True) # changed by kamal to auto assign the update time
-    name = models.CharField(max_length=50, null=False, blank=False, editable=False)
-    title = models.CharField(max_length=50, null=False, blank=False)
+    name = models.CharField(max_length=1000, null=False, blank=False, editable=False)
+    title = models.CharField(max_length=1000, null=False, blank=False)
     url = models.URLField(null=True, blank=True)
     #  items can be classified as maps, layers, styles, tools, applications, and datafiles
     type = models.CharField(max_length=50, null=False, blank=False)
